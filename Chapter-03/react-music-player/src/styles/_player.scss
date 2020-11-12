@@ -1,0 +1,30 @@
+.player {
+	min-height: 20vh; // 1vh = 1% if the ViewPort height
+	display: flex; // Puts all items in a horizontal line
+	flex-direction: column; // Aligns all items into a column
+	align-items: center; // Centers the column
+	//justify-content: space-between; // Spaces out the content
+}
+
+.time-control {
+	width: 50%; // Stretches out the content
+	display: flex;
+	input {
+		width: 100%;
+		padding: 1rem 2rem; //1rem=top/bottom 2rem=left/right
+	}
+	p {
+		padding: 1rem;
+	}
+}
+
+.play-control {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	width: 30%;
+	svg {
+		cursor: pointer; // Shows a pointer when moused over
+	}
+}
