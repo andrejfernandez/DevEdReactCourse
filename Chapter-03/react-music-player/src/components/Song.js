@@ -1,3 +1,5 @@
+import { faRubleSign } from "@fortawesome/free-solid-svg-icons";
+
 const Song = ({ currentSong }) => {
 	return (
 		<div className="song-container">
