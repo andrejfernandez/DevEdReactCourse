@@ -1,36 +1,50 @@
-const LibrarySong = ({
-	audioRef,
-	isPlaying,
-	song,
-	id,
-	key,
-	songs,
-	setCurrentSong,
-}) => {
-	// Handler
-	const songSelectHandler = () => {
-		setCurrentSong(song);
-		audioRef.current.play();
-		// Check if the song is playing
-		if (isPlaying) {
-			const playPromise = audioRef.current.play();
-			if (playPromise !== undefined) {
-				playPromise.then((audio) => {
-					audioRef.current.play();
-				});
-			}
-		}
-	};
+import { playAudio } from "../util";
 
-	return (
-		<div className="library-song" onClick={songSelectHandler}>
-			<img src={song.cover} alt={song.name}></img>
-			<div className="song-description">
-				<h3>{song.name}</h3>
-				<h4>{song.artist}</h4>
-			</div>
-		</div>
-	);
+const LibrarySong = ({
+  audioRef,
+  isPlaying,
+  song,
+  setSongs,
+  id,
+  songs,
+  setCurrentSong,
+}) => {
+  // Handler
+  const songSelectHandler = () => {
+    setCurrentSong(song);
+    audioRef.current.play();
+    // Add active state
+    const newSongs = songs.map((song) => {
+      if (song.id === id) {
+        //Song.id is from state, id is from selected song
+        // If they match, set active to true
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+    setSongs(newSongs); // Updates the songs list to show which one is active
+    playAudio(isPlaying, audioRef);
+  };
+
+  return (
+    <div
+      className={`library-song ${song.active ? "selected" : ""}`}
+      onClick={songSelectHandler}
+    >
+      <img src={song.cover} alt={song.name}></img>
+      <div className="song-description">
+        <h3>{song.name}</h3>
+        <h4>{song.artist}</h4>
+      </div>
+    </div>
+  );
 };
 
 export default LibrarySong;
