@@ -1,34 +1,46 @@
 .song-container {
-  min-height: 60vh; // 1vh = 1% if the ViewPort height
-  display: flex; // Puts all items in a horizontal line
-  flex-direction: column; // Aligns all items into a column
-  align-items: center; // Centers the column
-  justify-content: center; // Spaces out the content
+	min-height: 60vh; // 1vh = 1% if the ViewPort height
+	display: flex; // Puts all items in a horizontal line
+	flex-direction: column; // Aligns all items into a column
+	align-items: center; // Centers the column
+	justify-content: center; // Spaces out the content
 
-  img {
-    width: 20%;
-    border-radius: 50%;
-  }
-  h2 {
-    padding: 3rem 1rem 1rem 1rem;
-  }
-  h3 {
-    font-size: 1rem;
-  }
+	img {
+		// width: 20%;
+		height: 350px;
+		width: 350px;
+		border-radius: 50%;
+	}
+	h2 {
+		padding: 3rem 1rem 1rem 1rem;
+	}
+	h3 {
+		font-size: 1rem;
+	}
 }
 
 // Spin cover art
 .active-song {
-  img {
-    animation: rotation 20s infinite linear;
-  }
+	img {
+		animation: rotation 20s infinite linear;
+	}
 }
 
 @keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.song-container {
+		img {
+			height: 250px;
+			width: 250px;
+		}
+		margin-bottom: -40px;
+	}
 }
