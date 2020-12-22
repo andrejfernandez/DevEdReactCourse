@@ -36,7 +36,7 @@ h3{
 }
 h4{
     font-weight: bold;
-    color:#23d997;
+    font-size: 2rem;
 }
 p{
     padding: 3rem 0rem;
