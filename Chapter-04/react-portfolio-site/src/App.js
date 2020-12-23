@@ -2,6 +2,7 @@ import AboutUs from "./Pages/AboutUs.js";
 import OurWork from "./Pages/OurWork.js";
 import ContactUs from "./Pages/ContactUs.js";
 import Nav from "./Components/Nav";
+import MovieDetails from "./Pages/MovieDetails";
 // Global Style
 import GlobalStyle from "./Components/GlobalStyle";
 // Router
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/work" exact>
           <OurWork />
+        </Route>
+        <Route path="/work/:id">
+          <MovieDetails />
         </Route>
         <Route path="/contact" exact>
           <ContactUs />
