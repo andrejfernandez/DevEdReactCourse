@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { MovieState } from "../movieState";
+import { motion } from "framer-motion";
+
+//Animations
+import { pageAnimation } from "../animation";
 
 const MovieDetails = () => {
   const history = useHistory();
@@ -21,7 +25,12 @@ const MovieDetails = () => {
   return (
     <>
       {movie && (
-        <Details>
+        <Details
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+        >
           <HeadLine>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt="Movie" />
@@ -44,7 +53,7 @@ const MovieDetails = () => {
   );
 };
 
-const Details = styled.div`
+const Details = styled(motion.div)`
   color: white;
 `;
 
@@ -66,9 +75,9 @@ const HeadLine = styled.div`
 `;
 
 const Awards = styled.div`
-  min-height: 80vh;
+  min-height: 30vh;
   display: flex;
-  margin: 5rem 10rem;
+  margin: 5rem;
   align-items: center;
   justify-content: space-around;
 `;
@@ -77,6 +86,7 @@ const AwardStyle = styled.div`
   padding: 5rem;
   h3 {
     font-size: 2rem;
+    text-align: center;
   }
   .line {
     width: 100%;
@@ -85,7 +95,8 @@ const AwardStyle = styled.div`
     margin: 1rem 0rem;
   }
   p {
-    padding: 2rem 0rem;
+    padding: 0.2rem 0rem;
+    text-align: center;
   }
 `;
 
