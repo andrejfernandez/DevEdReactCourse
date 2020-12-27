@@ -1,5 +1,5 @@
 import home1 from "../img/home1.png";
-
+import Wave from "./Wave";
 // Styled
 import { About, Description, Image, Hide } from "../Styles";
 // Framer Motion
@@ -34,6 +34,7 @@ const AboutSection = () => {
       <Image>
         <motion.img src={home1} alt="Dude with camera" variants={photoAnim} />
       </Image>
+      <Wave />
     </About>
   );
 };
