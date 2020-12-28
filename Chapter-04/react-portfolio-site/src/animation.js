@@ -48,3 +48,11 @@ export const photoAnim = {
     },
   },
 };
+
+export const movieTitleAnim = {
+  hidden: { x: -1000 },
+  show: {
+    x: 0,
+    transition: { duration: 0.75, ease: "easeOut" },
+  },
+};
